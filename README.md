@@ -1,6 +1,7 @@
 <h1>ExpNo 8 : Solve Cryptarithmetic Problem,a CSP(Constraint Satisfaction Problem) using Python</h1> 
-<h3>Name:               </h3>
-<h3>Register Number/Staff Id:       </h3>
+<h3>Name: Vembarasan P</h3>
+<h3>Register Number: 212223220123   </h3>
+<h3>date : 05-11-2026    </h3>h3>
 <H3>Aim:</H3>
 <p>
     To solve Cryptarithmetic Problem,a CSP(Constraint Satisfaction Problem) using Python
@@ -78,5 +79,39 @@ MORE = 1085<br>
 <hr>
 MONEY = 10652<br>
 <hr>
+
+### Program
+
+```python
+from itertools import permutations
+def solve_cryptarithmetic():
+    for perm in permutations(range(10), 8):
+        S, E, N, D, M, O, R, Y = perm
+        if S == 0 or M == 0:
+            continue
+
+        SEND = 1000 * S + 100 * E + 10 * N + D
+        MORE = 1000 * M + 100 * O + 10 * R + E
+        MONEY = 10000 * M + 1000 * O + 100 * N + 10 * E + Y
+
+        if SEND + MORE == MONEY:
+            return SEND, MORE, MONEY
+
+    return None
+solution = solve_cryptarithmetic()
+
+if solution:
+    SEND, MORE, MONEY = solution
+    print(f'SEND = {SEND}')
+    print(f'MORE = {MORE}')
+    print(f'MONEY = {MONEY}')
+else:
+    print("No solution found.")
+```
+### Output
+
+<img width="201" height="91" alt="image" src="https://github.com/user-attachments/assets/c3242637-60d4-4198-9b9a-65f10be06f92" />
+
 <h2>Result:</h2>
+
 <p> Thus a Cryptarithmetic Problem was solved using Python successfully</p>
